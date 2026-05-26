@@ -487,18 +487,16 @@ document.addEventListener('DOMContentLoaded', () => {
             const item = document.createElement('div');
             item.className = `bento-item ${photo.type}`;
             item.style.backgroundImage = `url('${photo.img}')`;
+            // Iztukšots bento-overlay, lai vairs nerādītu tagus un virsrakstus uz bildēm
             item.innerHTML = `
-                <div class="bento-overlay">
-                    <span class="bento-tag">${photo.tag}</span>
-                    <h3>${photo.title}</h3>
+                <div class="bento-overlay" style="background: transparent;">
                 </div>
             `;
             
             item.onclick = () => {
-                const title = item.querySelector('h3').innerText;
-                const tag = item.querySelector('.bento-tag').innerText;
+                // Izņemts teksta meklētājs, jo tagad uz bilžu vairs nav teksta
                 lightboxImg.src = photo.img;
-                lightboxCaption.innerText = `${tag}: ${title}`;
+                lightboxCaption.innerText = "";
                 lightbox.classList.add('active');
             };
 
