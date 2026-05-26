@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="lv">
 
 <head>
@@ -19,12 +19,7 @@
 <body class="light-mode">
     <div class="film-grain" aria-hidden="true"></div>
 
-    <!-- Cinematic traveling beacon (parallax shared element) -->
-    <div class="beacon" aria-hidden="true">
-        <div class="beacon-core"></div>
-        <div class="beacon-ring"></div>
-        <div class="beacon-trail"></div>
-    </div>
+
 
     <div id="scroll-progress" class="scroll-progress"></div>
     <div class="glow-blob glow-blob-1"></div>
@@ -101,7 +96,7 @@
         <section id="grafiks" class="schedule-section">
             <div class="container">
                 <div class="section-badge">Nedēļas plāns</div>
-                <h2>Lekciju Grafiks</h2>
+                <h2>Lekciju grafiks</h2>
                 <div class="schedule-container">
                     <div class="schedule-day" data-day="1">
                         <h3>Pirmdiena</h3>
@@ -145,12 +140,12 @@
         <section id="planotajs" class="kanban-section alternate">
             <div class="container">
                 <div class="section-badge">Nedēļas vadība</div>
-                <h2>Darbu Plānotājs</h2>
+                <h2>Darbu plānotājs</h2>
                 <p>Pievieno savus studiju vai darba uzdevumus ar prioritātēm un sarežģītību.</p>
 
                 <div class="kanban-controls">
-                    <button id="open-modal" class="btn btn-primary">Pievienot Uzdevumu</button>
-                    <button id="clear-all" class="btn btn-danger">Notīrīt Visu</button>
+                    <button id="open-modal" class="btn btn-primary">Pievienot uzdevumu</button>
+                    <button id="clear-all" class="btn btn-danger">Notīrīt visu</button>
                 </div>
 
                 <div id="task-modal" class="modal">
@@ -216,16 +211,16 @@
             </div>
         </section>
 
-        <!-- 7. Tematiskā vienība: Fokusa Centrs -->
+        <!-- 7. Tematiskā vienība: Fokusa centrs -->
         <section id="komplekts" class="days-section">
             <div class="container">
                 <div class="section-badge">Produktivitāte</div>
                 <div class="section-header-inline">
-                    <h2>Fokusa Centrs</h2>
+                    <h2>Fokusa centrs</h2>
                     <div class="info-trigger" id="focus-info-trigger">
                         <span>i</span>
                         <div class="info-tooltip">
-                            <h4>Kāpēc Fokusa Centrs?</h4>
+                            <h4>Kāpēc fokusa centrs?</h4>
                             <p>Zinātniski pierādīts, ka sadalot darbu mazos, intensīvos posmos (piem. Pomodoro metode), efektivitāte pieaug. Izmanto šo rīku, lai nepazaudētu laika izjūtu programmējot!</p>
                         </div>
                     </div>
@@ -240,7 +235,7 @@
 
                     <div class="timer-display" id="main-display">00:00:00</div>
                     
-                    <div class="timer-controls" id="timer-controls">
+                    <div class="timer-controls hidden" id="timer-controls">
                         <div class="timer-presets hidden" id="timer-presets">
                             <button class="preset-btn" data-time="25">25m</button>
                             <button class="preset-btn" data-time="50">50m</button>
@@ -272,12 +267,12 @@
                     </div>
                     <div class="stat-card">
                         <div class="stat-icon">☕</div>
-                        <div class="stat-value" data-target="42">0</div>
+                        <div class="stat-value" data-target="15">0</div>
                         <div class="stat-label">Kafijas tases</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-icon">📚</div>
-                        <div class="stat-value" data-target="24">0</div>
+                        <div class="stat-value" data-target="11">0</div>
                         <div class="stat-label">Lekcijas</div>
                     </div>
                     <div class="stat-card">
@@ -287,7 +282,7 @@
                     </div>
                     <div class="stat-card">
                         <div class="stat-icon">🛠️</div>
-                        <div class="stat-value" data-target="158">0</div>
+                        <div class="stat-value" data-target="34">0</div>
                         <div class="stat-label">Git Commits</div>
                     </div>
                     <div class="stat-card">
@@ -302,18 +297,18 @@
                     </div>
                     <div class="stat-card">
                         <div class="stat-icon">🔍</div>
-                        <div class="stat-value" data-target="210">0</div>
-                        <div class="stat-label">Search vaicājumi</div>
+                        <div class="stat-value" data-target="58">0</div>
+                        <div class="stat-label">Meklēšanas vaicājumi</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 6. Tematiskā vienība: Digitālā Vide -->
+        <!-- 6. Tematiskā vienība: Digitālā vide -->
         <section id="vide" class="days-section alternate">
             <div class="container">
                 <div class="section-badge">Ekosistēma</div>
-                <h2>Digitālā Vide</h2>
+                <h2>Digitālā vide</h2>
 
                 <div class="tools-grid">
                     <div class="tool-card">
@@ -358,39 +353,6 @@
                     </div>
                 </div>
 
-                <!-- Grand Quiz Integrated -->
-                <div class="quiz-container card" style="margin-top: 6rem;">
-                    <div id="quiz-start-view">
-                        <div class="quiz-intro-icon">🧠</div>
-                        <h3>Pārbaudi savas zināšanas!</h3>
-                        <p>Cik labi Tu pārzini šos rīkus un studentu dzīvi?</p>
-                        <button id="start-grand-quiz" class="btn btn-primary">Sākt Testu</button>
-                    </div>
-
-                    <div id="quiz-question-view" class="hidden">
-                        <div class="quiz-progress-wrapper">
-                            <div class="quiz-progress-bar" id="quiz-progress-bar"></div>
-                        </div>
-                        <div class="quiz-question-header">
-                            <span class="question-number" id="question-number">Jautājums 1/5</span>
-                            <h3 id="grand-quiz-question">Jautājums šeit?</h3>
-                        </div>
-                        <div class="quiz-options-grid" id="grand-quiz-options">
-                            <!-- Options generated here -->
-                        </div>
-                    </div>
-
-                    <div id="quiz-result-view" class="hidden">
-                        <div class="result-icon" id="result-icon">🏆</div>
-                        <h3 id="result-title">Testa Rezultāts</h3>
-                        <p id="result-description">Tu esi īsts Datorikas nodaļas zinātājs!</p>
-                        <div class="result-score-tag">
-                            Punkti: <span id="final-score">0</span> / <span id="total-questions">0</span>
-                        </div>
-                        <button id="restart-quiz" class="btn btn-secondary">Mēģināt vēlreiz</button>
-                    </div>
-                </div>
-
                 <div class="tech-stack-mini">
                     <p>Izmantotās tehnoloģijas:</p>
                     <div class="tech-marquee">
@@ -413,41 +375,32 @@
 
                 <!-- Day Selection View: Primary 5 Thumbnails -->
                 <div id="day-selection-view" class="day-selection-grid">
-                    <div class="day-folder" data-day="pirmdiena" style="background-image: url('pirmdiena.png');">
+                    <div class="day-folder" data-day="pirmdiena" style="background-image: url('images/pirmdiena.jpg');">
                         <div class="folder-overlay">
-                            <span class="folder-day">Pn</span>
-                            <h3>Pirmdiena</h3>
-                            <span class="photo-count">3 foto</span>
-                        </div>
+                        <h3>Pirmdiena</h3>
+                        <span class="photo-count">3 foto</span>
                     </div>
-                    <div class="day-folder" data-day="otrdiena" style="background-image: url('otrdiena.png');">
-                        <div class="folder-overlay">
-                            <span class="folder-day">Ot</span>
-                            <h3>Otrdiena</h3>
-                            <span class="photo-count">3 foto</span>
-                        </div>
+                </div>
+                <div class="day-folder" data-day="otrdiena" style="background-image: url('images/otrdiena0.jpg');">
+                    <div class="folder-overlay">
+                        <h3>Otrdiena</h3>
+                        <span class="photo-count">7 foto</span>
                     </div>
-                    <div class="day-folder" data-day="tresdiena" style="background-image: url('otrdiena.png');">
-                        <div class="folder-overlay">
-                            <span class="folder-day">Tr</span>
-                            <h3>Trešdiena</h3>
-                            <span class="photo-count">2 foto</span>
-                        </div>
+                </div>
+                <div class="day-folder" data-day="tresdiena" style="background-image: url('images/tresdiena.jpg');">
+                    <div class="folder-overlay">
+                        <h3>Trešdiena</h3>
+                        <span class="photo-count">7 foto</span>
                     </div>
-                    <div class="day-folder" data-day="ceturtdiena" style="background-image: url('pirmdiena.png');">
-                        <div class="folder-overlay">
-                            <span class="folder-day">Ce</span>
-                            <h3>Ceturtdiena</h3>
-                            <span class="photo-count">2 foto</span>
-                        </div>
+                </div>
+                <div class="day-folder" data-day="ceturtdiena" style="background-image: url('images/ceturtdiena.jpg');">
+                    <div class="folder-overlay">
+                        <h3>Ceturtdiena</h3>
+                        <span class="photo-count">2 foto</span>
                     </div>
-                    <div class="day-folder" data-day="piektdiena" style="background-image: url('hero.png');">
-                        <div class="folder-overlay">
-                            <span class="folder-day">Pk</span>
-                            <h3>Piektdiena</h3>
-                            <span class="photo-count">2 foto</span>
-                        </div>
-                    </div>
+                </div>
+                <div class="day-folder" data-day="piektdiena" style="background-image: url('images/piektdiena.jpg');">
+                    <div class="folder-overlay">
                 </div>
 
                 <!-- Album View: Shown after picking a day -->
@@ -488,18 +441,16 @@
                 <div class="profile-layout">
                     <div class="profile-info">
                         <div class="profile-card card">
-                            <h3>Par projektu</h3>
-                            <p>Sveiki! Es esmu LU Datorikas nodaļas studente. Šī mājaslapa ir mans ieskats tajā, kā
-                                paiet viena parasta, bet tajā pašā laikā notikumiem bagāta nedēļa datorzinātņu studenta
-                                dzīvē.</p>
+                            <h3>Par mani</h3>
+                            <p>Sveiki! Es esmu LU Datorikas nodaļas 3. kursa studente. Paralēli studijām strādāju kā jaunākā izstrādātāja uzņēmumā SIA BISS, ikdienā apvienojot akadēmiskās zināšanas ar reālu darba pieredzi IT nozarē.</p>
                             <div class="skills-wrap">
-                                <span class="tag tag-prio-augsta">Full-stack</span>
-                                <span class="tag tag-prio-vidēja">Python</span>
-                                <span class="tag tag-prio-zema">UI/UX</span>
+                                <span class="tag tag-prio-augsta">.NET</span>
+                                <span class="tag tag-prio-vidēja">Web Izstrāde</span>
+                                <span class="tag tag-prio-zema">C#</span>
                             </div>
                             <div class="contact-info">
-                                <p><strong>E-pasts:</strong> marta.karina@lu.lv</p>
-                                <p><strong>Github:</strong> github.com/mkarina</p>
+                                <p><strong>E-pasts:</strong> ms23123@edu.lu.lv</p>
+                                <p><strong>Github:</strong> github.com/martaskrastina04</p>
                             </div>
                         </div>
 
@@ -522,6 +473,11 @@
             </div>
         </section>
     </main>
+
+    <!-- Pielāgots Toast paziņojums, kas aizvietos visus neglītos alert() -->
+    <div id="toast-message" class="toast hidden">
+        <span id="toast-text">Paziņojums</span>
+    </div>
 
     <footer class="footer">
         <div class="container">

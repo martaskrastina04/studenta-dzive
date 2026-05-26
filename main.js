@@ -149,6 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Flatpickr Initialization
     const datePicker = flatpickr("#task-deadline", {
+        minDate: "today",
         altInput: true,
         altFormat: "F j, Y",
         dateFormat: "Y-m-d",
@@ -275,6 +276,33 @@ document.addEventListener('DOMContentLoaded', () => {
         const complexity = document.getElementById('task-complexity').value;
         const deadline = document.getElementById('task-deadline').value;
 
+        if (deadline) {
+            const selectedDate = new Date(deadline);
+            // Globāla funkcija custom Toast paziņojumam
+        window.showToast = function(message) {
+            const toast = document.getElementById('toast-message');
+            const toastText = document.getElementById('toast-text');
+            if(toast && toastText) {
+                toastText.innerText = message;
+                toast.classList.add('show');
+                // Paslēpt pēc 3 sekundēm
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 3000);
+            } else {
+                // Fallback, ja HTML nav atrasts
+                alert(message);
+            }
+        };
+
+        const today = new Date();
+            today.setHours(0, 0, 0, 0); // Noņemt stundas, lai salīdzinātu tikai dienas
+            if (selectedDate < today) {
+                showToast("Nevar izveidot uzdevumu ar datumu pagātnē!");
+                return; // Apturēt saglabāšanu
+            }
+        }
+
         if (title) {
             const task = { title, priority, complexity, deadline };
             
@@ -307,7 +335,7 @@ document.addEventListener('DOMContentLoaded', () => {
             saveTasks();
             modal.classList.remove('active');
         } else {
-            alert('Lūdzu, ievadi nosaukumu!');
+            showToast('Lūdzu, ievadi nosaukumu!');
         }
     };
 
@@ -409,26 +437,36 @@ document.addEventListener('DOMContentLoaded', () => {
     // Gallery Album Logic
     const galleryData = {
         pirmdiena: [
-            { type: 'large', img: 'pirmdiena.png', tag: 'Studijas', title: 'Pirmdienas agrais kods' },
-            { type: '', img: 'hero.png', tag: 'Vide', title: 'Kārtojam darba vietu' },
-            { type: '', img: 'otrdiena.png', tag: 'Resursi', title: 'Grāmatu kalni' }
+            { type: 'large', img: 'images/pirmdiena.jpg', tag: 'Studijas', title: 'Pirmdienas sākums' },
+            { type: '', img: 'images/pirmdiena1.jpg', tag: 'Atslodze', title: 'Atpūtas brīdis' },
+            { type: '', img: 'images/pirmdiena4.jpg', tag: 'Vakars', title: 'Dienas beigas' },
+            { type: 'wide', img: 'images/pirmdiena5.jpg', tag: 'Sagatavošanās', title: 'Darba noskaņa' }
         ],
         otrdiena: [
-            { type: 'wide', img: 'otrdiena.png', tag: 'Lekcija', title: 'Algoritmu nodaļas telpā' },
-            { type: '', img: 'pirmdiena.png', tag: 'Atpūta', title: 'Kafijas pauze' },
-            { type: 'tall', img: 'hero.png', tag: 'Komanda', title: 'Grupas darba sesija' }
+            { type: 'large', img: 'images/otrdiena0.jpg', tag: 'Dators', title: 'Darbs' },
+            { type: '', img: 'images/otrdiena1.jpg', tag: 'Detaļas', title: 'Piezīmes' },
+            { type: 'tall', img: 'images/otrdiena2.jpg', tag: 'Vakars', title: 'Tumšā tēma' },
+            { type: '', img: 'images/otrdiena3.jpg', tag: 'Saraksts', title: 'Plānošana' },
+            { type: 'wide', img: 'images/otrdiena4.jpg', tag: 'Skats', title: 'Perspektīva' },
+            { type: '', img: 'images/otrdiena5.jpg', tag: 'Kafija', title: 'Pauze' },
+            { type: '', img: 'images/otrdiena6.jpg', tag: 'Noskaņa', title: 'Fokuss' }
         ],
         tresdiena: [
-            { type: 'tall', img: 'otrdiena.png', tag: 'Projekts', title: 'Tīmekļa dizaina demo' },
-            { type: 'wide', img: 'pirmdiena.png', tag: 'Analīze', title: 'Testēšanas fāze' }
+            { type: 'large', img: 'images/tresdiena.jpg', tag: 'Studijas', title: 'Gatavošanās' },
+            { type: 'tall', img: 'images/tresdiena1.jpg', tag: 'Lasīšana', title: 'Grāmata' },
+            { type: '', img: 'images/tresdiena2.jpg', tag: 'Lekcija', title: 'Vidi' },
+            { type: 'wide', img: 'images/tresdiena3.jpg', tag: 'Projekts', title: 'Ekrāns' },
+            { type: '', img: 'images/tresdiena4.jpg', tag: 'Domāšana', title: 'Process' },
+            { type: '', img: 'images/tresdiena5.jpg', tag: 'Viela', title: 'Jaunumi' },
+            { type: 'wide', img: 'images/tresdiena6.jpg', tag: 'Mācības', title: 'Koncentrēšanās' }
         ],
         ceturtdiena: [
-            { type: '', img: 'pirmdiena.png', tag: 'Sports', title: 'Galda teniss' },
-            { type: 'large', img: 'otrdiena.png', tag: 'Kods', title: 'Vēlā ceturtdienas debug' }
+            { type: 'large', img: 'images/ceturtdiena.jpg', tag: 'Rīts', title: 'Ceturtdienas miers' },
+            { type: '', img: 'images/ceturtdiena1.jpg', tag: 'Noslēgums', title: 'Darba beigas' }
         ],
         piektdiena: [
-            { type: 'large', img: 'otrdiena.png', tag: 'Brīvība', title: 'Nedēļas finišs' },
-            { type: '', img: 'hero.png', tag: 'Atmosfēra', title: 'Saulriets pie LU' }
+            { type: 'wide', img: 'images/piektdiena.jpg', tag: 'Finišs', title: 'Piektdiena' },
+            { type: 'tall', img: 'images/piektdiena2.png', tag: 'Ceļojums', title: 'Aiziet' }
         ]
     };
 
@@ -807,7 +845,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (timeRemaining <= 0) {
                     timeRemaining = 0;
                     stopLogic();
-                    alert('Fokusa sesija beigusies!');
+                    showToast('Fokusa sesija beigusies!');
                 }
                 updateDisplay();
             }, 1000);
@@ -1083,7 +1121,7 @@ document.addEventListener('DOMContentLoaded', () => {
             grid.forEach(row => row.fill(0));
             player.score = 0;
             updateScore();
-            alert('SPĒLE BEIGUSIES!');
+            showToast('SPĒLE BEIGUSIES!');
         }
     }
 
@@ -1113,6 +1151,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function activateEasterEgg() {
         tetrisOverlay.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden'; // Papildu slānis, lai apturētu scrolling uz saknes
         playerReset();
         updateScore();
         draw();
@@ -1134,11 +1173,22 @@ document.addEventListener('DOMContentLoaded', () => {
         gameRunning = false;
         tetrisOverlay.classList.add('hidden');
         document.body.style.overflow = 'auto';
+        document.documentElement.style.overflow = 'auto';
         startTetrisBtn.innerText = 'Sākt Spēli';
     };
 
+    // Bloķējam ritināšanu pilnībā visā lapā atsevišķā klausītājā
+    window.addEventListener('keydown', (e) => {
+        if (!tetrisOverlay.classList.contains('hidden')) {
+            if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", " "].includes(e.key)) {
+                e.preventDefault();
+            }
+        }
+    }, { passive: false });
+
     document.addEventListener('keydown', (e) => {
         if (!gameRunning) return;
+
         if (e.key === 'ArrowLeft') {
             playerMove(-1);
         } else if (e.key === 'ArrowRight') {
@@ -1161,6 +1211,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (cursorDot && cursorOutline) {
         window.addEventListener('mousemove', (e) => {
+            // Disable JS logic for small screens or touch devices to save performance
+            if (window.innerWidth <= 900 || matchMedia('(hover: none) and (pointer: coarse)').matches) {
+                return;
+            }
+            
             const posX = e.clientX;
             const posY = e.clientY;
 
