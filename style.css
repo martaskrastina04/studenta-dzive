@@ -7,8 +7,9 @@
     --text-secondary: #54607a;
     --accent-color: #2454c7;        /* LU royal blue */
     --accent-deep: #0b2a6b;          /* deep navy */
-    --accent-bright: #4d8df0;
-    --accent-gradient: linear-gradient(135deg, #0b2a6b 0%, #2454c7 50%, #4d8df0 100%);
+    --accent-bright: #cc0077;        /* NEW: Pink accent #cc0077 */
+    --accent-cyan: #00e5e5;          /* NEW: Cyan accent #00e5e5 */
+    --accent-gradient: linear-gradient(135deg, #0b2a6b 0%, #2454c7 50%, #cc0077 100%);
     --accent-glow: rgba(36, 84, 199, 0.18);
     --card-bg: #ffffff;
     --nav-bg: rgba(255, 255, 255, 0.78);
@@ -28,8 +29,9 @@ body.dark-mode {
     --text-secondary: #9badcf;
     --accent-color: #6ea3ff;
     --accent-deep: #1a3a8f;
-    --accent-bright: #9bc1ff;
-    --accent-gradient: linear-gradient(135deg, #1a3a8f 0%, #2b6bff 50%, #9bc1ff 100%);
+    --accent-bright: #ff4de3;        /* NEW: Light pink/purple accent #ff4de3 */
+    --accent-cyan: #00e5e5;          /* NEW: Cyan accent #00e5e5 */
+    --accent-gradient: linear-gradient(135deg, #1a3a8f 0%, #2b6bff 50%, #ff4de3 100%);
     --accent-glow: rgba(110, 163, 255, 0.28);
     --card-bg: #0a142b;
     --nav-bg: rgba(5, 10, 26, 0.78);
