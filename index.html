@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="lv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>marta.dev | Viena nedēļa</title>
+    <meta name="description" content="Viena darba nedēļa Latvijas Universitātes Datorikas nodaļas studenta dzīvē.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+
+<body class="light-mode">
+    <div class="film-grain" aria-hidden="true"></div>
+
+    <!-- Cinematic traveling beacon (parallax shared element) -->
+    <div class="beacon" aria-hidden="true">
+        <div class="beacon-core"></div>
+        <div class="beacon-ring"></div>
+        <div class="beacon-trail"></div>
+    </div>
+
+    <div id="scroll-progress" class="scroll-progress"></div>
+    <div class="glow-blob glow-blob-1"></div>
+    <div class="glow-blob glow-blob-2"></div>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#sakums" class="logo">marta<span>.dev</span></a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#sakums">Sākums</a></li>
+                <li><a href="#grafiks">Grafiks</a></li>
+                <li><a href="#planotajs">Uzdevumi</a></li>
+                <li><a href="#komplekts">Fokuss</a></li>
+                <li><a href="#dati">Statistika</a></li>
+                <li><a href="#vide">Rīki</a></li>
+                <li><a href="#galerija">Galerija</a></li>
+                <li><a href="#autors">Par mani</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Mainīt krāsu režīmu">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                <button id="menu-toggle" class="menu-toggle-btn" aria-label="Atvērt izvēlni">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="sakums" class="hero">
+            <div class="hero-bg-grid"></div>
+            <div class="floating-elements" id="floating-elements">
+                <span class="float-item">{ }</span>
+                <span class="float-item">( )</span>
+                <span class="float-item">#</span>
+                <span class="float-item">&lt;/&gt;</span>
+                <span class="float-item">JS</span>
+                <span class="float-item">CSS</span>
+            </div>
+            
+            <div class="hero-content">
+                <span class="hero-eyebrow fade-in">LU · Datorikas nodaļas · 2026</span>
+                <h1 class="fade-in">Viena nedēļa<br><span class="gradient-text">Studenta Dzīvē</span></h1>
+                <p class="fade-in-delay">Ieskats Latvijas Universitātes Datorikas nodaļas ikdienā – no koda rindām līdz
+                    studentu brīvībai.</p>
+                <div class="hero-actions fade-in-delay">
+                    <a href="#grafiks" class="btn btn-primary magnetic" id="hero-cta">Sākt ceļojumu</a>
+                </div>
+            </div>
+            
+            <div class="scroll-hint fade-in-delay">
+                <div class="chevron"></div>
+            </div>
+        </section>
+        <section id="grafiks" class="schedule-section">
+            <div class="container">
+                <div class="section-badge">Nedēļas plāns</div>
+                <h2>Lekciju Grafiks</h2>
+                <div class="schedule-container">
+                    <div class="schedule-day" data-day="1">
+                        <h3>Pirmdiena</h3>
+                        <div class="schedule-item" data-start="08:30" data-end="10:10">08:30 - 10:10<br>Dabas zinātnes
+                            (18. aud.)</div>
+                        <div class="schedule-item" data-start="10:30" data-end="12:10">10:30 - 12:10<br>Dabas zinātnes
+                            (18. aud.)</div>
+                        <div class="schedule-item" data-start="14:30" data-end="16:10">14:30 - 16:10<br>Datu bāzu
+                            praktikums (336. telpa)</div>
+                    </div>
+                    <div class="schedule-day" data-day="2">
+                        <h3>Otrdiena</h3>
+                        <div class="schedule-item" data-start="14:30" data-end="16:10">14:30 - 16:10<br>Algoritmu
+                            teorija (415. aud.)</div>
+                        <div class="schedule-item" data-start="17:00" data-end="18:30">17:00 - 18:30<br>Caurviju prasmju
+                            attīstība (Tiešsaiste)</div>
+                    </div>
+                    <div class="schedule-day" data-day="3">
+                        <h3>Trešdiena</h3>
+                        <div class="schedule-item" data-start="08:30" data-end="10:10">08:30 - 10:10<br>Tīmekļa dizaina
+                            pamati (13. aud.)</div>
+                        <div class="schedule-item">Veselības traucējumi (Tiešsaiste)</div>
+                        <div class="schedule-item" data-start="18:15" data-end="19:45">18:15 - 19:45<br>Tīmekļa dizaina
+                            pamati (lab.d)</div>
+                    </div>
+                    <div class="schedule-day" data-day="4">
+                        <h3>Ceturtdiena</h3>
+                        <div class="schedule-item" data-start="16:30" data-end="18:05">16:30 - 18:05<br>Objektorientētā
+                            prog. (Tiešsaiste)</div>
+                        <div class="schedule-item" data-start="18:15" data-end="19:45">18:15 - 19:45<br>Objektorientētā
+                            prog. (Tiešsaiste)</div>
+                    </div>
+                    <div class="schedule-day" data-day="5">
+                        <h3>Piektdiena</h3>
+                        <div class="schedule-item" data-start="08:30" data-end="10:00">08:30 - 10:00<br>Sporta
+                            aktivitātes I</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="planotajs" class="kanban-section alternate">
+            <div class="container">
+                <div class="section-badge">Nedēļas vadība</div>
+                <h2>Darbu Plānotājs</h2>
+                <p>Pievieno savus studiju vai darba uzdevumus ar prioritātēm un sarežģītību.</p>
+
+                <div class="kanban-controls">
+                    <button id="open-modal" class="btn btn-primary">Pievienot Uzdevumu</button>
+                    <button id="clear-all" class="btn btn-danger">Notīrīt Visu</button>
+                </div>
+
+                <div id="task-modal" class="modal">
+                    <div class="modal-content card">
+                        <h3>Jauns uzdevums</h3>
+                        <div class="form-group">
+                            <label for="task-title">Nosaukums</label>
+                            <input type="text" id="task-title" placeholder="Piem. Laboratorijas darbs">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="task-priority">Prioritāte</label>
+                                <select id="task-priority">
+                                    <option value="Zema">Zema</option>
+                                    <option value="Vidēja" selected>Vidēja</option>
+                                    <option value="Augsta">Augsta</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="task-complexity">Sarežģītība</label>
+                                <select id="task-complexity">
+                                    <option value="Viegli">Viegli</option>
+                                    <option value="Vidēji" selected>Vidēji</option>
+                                    <option value="Grūti">Grūti</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group task-date-group">
+                            <label for="task-deadline">Termiņš</label>
+                            <div class="input-with-icon">
+                                <svg class="calendar-icon-input" xmlns="http://www.w3.org/2000/svg" width="20"
+                                    height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                                <input type="text" id="task-deadline" placeholder="Izvēlies datumu...">
+                            </div>
+                        </div>
+                        <div class="modal-actions">
+                            <button id="save-task" class="btn btn-primary">Saglabāt</button>
+                            <button id="close-modal" class="btn btn-secondary">Atcelt</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kanban-board">
+                    <div class="kanban-column" id="todo" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <h3>Jāizdara</h3>
+                        <div class="task-list"></div>
+                    </div>
+                    <div class="kanban-column" id="doing" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <h3>Procesā</h3>
+                        <div class="task-list"></div>
+                    </div>
+                    <div class="kanban-column" id="done" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <h3>Pabeigts</h3>
+                        <div class="task-list"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Tematiskā vienība: Fokusa Centrs -->
+        <section id="komplekts" class="days-section">
+            <div class="container">
+                <div class="section-badge">Produktivitāte</div>
+                <div class="section-header-inline">
+                    <h2>Fokusa Centrs</h2>
+                    <div class="info-trigger" id="focus-info-trigger">
+                        <span>i</span>
+                        <div class="info-tooltip">
+                            <h4>Kāpēc Fokusa Centrs?</h4>
+                            <p>Zinātniski pierādīts, ka sadalot darbu mazos, intensīvos posmos (piem. Pomodoro metode), efektivitāte pieaug. Izmanto šo rīku, lai nepazaudētu laika izjūtu programmējot!</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="focus-center-container card">
+                    <div class="focus-tabs">
+                        <button class="focus-tab active" data-mode="clock">Pulkstenis</button>
+                        <button class="focus-tab" data-mode="timer">Taimeris</button>
+                        <button class="focus-tab" data-mode="stopwatch">Hronometrs</button>
+                    </div>
+
+                    <div class="timer-display" id="main-display">00:00:00</div>
+                    
+                    <div class="timer-controls" id="timer-controls">
+                        <div class="timer-presets hidden" id="timer-presets">
+                            <button class="preset-btn" data-time="25">25m</button>
+                            <button class="preset-btn" data-time="50">50m</button>
+                            <button class="preset-btn" data-time="15">Atpūta</button>
+                        </div>
+                        <div class="action-btns">
+                            <button id="timer-start" class="btn btn-primary">Sākt</button>
+                            <button id="timer-pause" class="btn btn-secondary hidden">Pauze</button>
+                            <button id="timer-reset" class="btn btn-outline hidden">Atiestatīt</button>
+                        </div>
+                    </div>
+                    
+                    <div class="focus-footer">
+                        <button id="open-tetris-btn" class="btn-text">Paņemt 5min pauzi? 🎮</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="dati" class="stats-section">
+            <div class="container fade-in">
+                <div class="section-badge">Statistika</div>
+                <h2>Nedēļa skaitļos</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">💻</div>
+                        <div class="stat-value" data-target="1420">0</div>
+                        <div class="stat-label">Koda rindas</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">☕</div>
+                        <div class="stat-value" data-target="42">0</div>
+                        <div class="stat-label">Kafijas tases</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📚</div>
+                        <div class="stat-value" data-target="24">0</div>
+                        <div class="stat-label">Lekcijas</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⚡</div>
+                        <div class="stat-value" data-target="86">0</div>
+                        <div class="stat-label">Efektivitāte %</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🛠️</div>
+                        <div class="stat-value" data-target="158">0</div>
+                        <div class="stat-label">Git Commits</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🏆</div>
+                        <div class="stat-value" data-target="12">0</div>
+                        <div class="stat-label">Uzvaras</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🌙</div>
+                        <div class="stat-value" data-target="35">0</div>
+                        <div class="stat-label">Miegs (stundas)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🔍</div>
+                        <div class="stat-value" data-target="210">0</div>
+                        <div class="stat-label">Search vaicājumi</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Tematiskā vienība: Digitālā Vide -->
+        <section id="vide" class="days-section alternate">
+            <div class="container">
+                <div class="section-badge">Ekosistēma</div>
+                <h2>Digitālā Vide</h2>
+
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <div class="tool-logo">VS</div>
+                        <h3>Visual Studio</h3>
+                        <p>Galvenā darba vide nopietnai programmēšanai un C++ / C# projektiem.</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-logo">LU</div>
+                        <h3>e-Studijas</h3>
+                        <p>Digitālais mācību centrs – te dzīvo kursi, materiāli un svarīgākie testi.</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-logo">GH</div>
+                        <h3>GitHub</h3>
+                        <p>Koda versiju kontrole un komandas darbu sirds. Šeit viss tiek droši glabāts.</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-logo">MS</div>
+                        <h3>Teams</h3>
+                        <p>Saziņas kanāls attālinātajām lekcijām un ātrām konsultācijām ar kursabiedriem.</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-logo">VB</div>
+                        <h3>VirtualBox</h3>
+                        <p>Virtuālās pasaules – šeit mēs droši eksperimentējam ar dažādām operētājsistēmām.</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-logo">IS</div>
+                        <h3>LUIS</h3>
+                        <p>Oficiālā LU sistēma, kurā apskatīt atzīmes un reģistrēt studiju līgumus.</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-logo">CV</div>
+                        <h3>Canva</h3>
+                        <p>Radošais palīgs prezentāciju un vizuālo materiālu veidošanai studiju darbiem.</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-logo">SO</div>
+                        <h3>Stack Overflow</h3>
+                        <p>Zināšanu enciklopēdija – vieta, kur meklēt atbildes uz visiem koda jautājumiem.</p>
+                    </div>
+                </div>
+
+                <!-- Grand Quiz Integrated -->
+                <div class="quiz-container card" style="margin-top: 6rem;">
+                    <div id="quiz-start-view">
+                        <div class="quiz-intro-icon">🧠</div>
+                        <h3>Pārbaudi savas zināšanas!</h3>
+                        <p>Cik labi Tu pārzini šos rīkus un studentu dzīvi?</p>
+                        <button id="start-grand-quiz" class="btn btn-primary">Sākt Testu</button>
+                    </div>
+
+                    <div id="quiz-question-view" class="hidden">
+                        <div class="quiz-progress-wrapper">
+                            <div class="quiz-progress-bar" id="quiz-progress-bar"></div>
+                        </div>
+                        <div class="quiz-question-header">
+                            <span class="question-number" id="question-number">Jautājums 1/5</span>
+                            <h3 id="grand-quiz-question">Jautājums šeit?</h3>
+                        </div>
+                        <div class="quiz-options-grid" id="grand-quiz-options">
+                            <!-- Options generated here -->
+                        </div>
+                    </div>
+
+                    <div id="quiz-result-view" class="hidden">
+                        <div class="result-icon" id="result-icon">🏆</div>
+                        <h3 id="result-title">Testa Rezultāts</h3>
+                        <p id="result-description">Tu esi īsts Datorikas nodaļas zinātājs!</p>
+                        <div class="result-score-tag">
+                            Punkti: <span id="final-score">0</span> / <span id="total-questions">0</span>
+                        </div>
+                        <button id="restart-quiz" class="btn btn-secondary">Mēģināt vēlreiz</button>
+                    </div>
+                </div>
+
+                <div class="tech-stack-mini">
+                    <p>Izmantotās tehnoloģijas:</p>
+                    <div class="tech-marquee">
+                        <div class="tech-track">
+                            <span>HTML5</span> <span>CSS3</span> <span>JavaScript</span> <span>Python</span>
+                            <span>SQL</span> <span>Git</span> <span>React</span>
+                            <span>HTML5</span> <span>CSS3</span> <span>JavaScript</span> <span>Python</span>
+                            <span>SQL</span> <span>Git</span> <span>React</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Tematiskā vienība: Modernā Bento Galerija -->
+        <section id="galerija" class="days-section">
+            <div class="container">
+                <div class="section-badge">Vizuālās atmiņas</div>
+                <h2>Nedēļas albums</h2>
+
+                <!-- Day Selection View: Primary 5 Thumbnails -->
+                <div id="day-selection-view" class="day-selection-grid">
+                    <div class="day-folder" data-day="pirmdiena" style="background-image: url('pirmdiena.png');">
+                        <div class="folder-overlay">
+                            <span class="folder-day">Pn</span>
+                            <h3>Pirmdiena</h3>
+                            <span class="photo-count">3 foto</span>
+                        </div>
+                    </div>
+                    <div class="day-folder" data-day="otrdiena" style="background-image: url('otrdiena.png');">
+                        <div class="folder-overlay">
+                            <span class="folder-day">Ot</span>
+                            <h3>Otrdiena</h3>
+                            <span class="photo-count">3 foto</span>
+                        </div>
+                    </div>
+                    <div class="day-folder" data-day="tresdiena" style="background-image: url('otrdiena.png');">
+                        <div class="folder-overlay">
+                            <span class="folder-day">Tr</span>
+                            <h3>Trešdiena</h3>
+                            <span class="photo-count">2 foto</span>
+                        </div>
+                    </div>
+                    <div class="day-folder" data-day="ceturtdiena" style="background-image: url('pirmdiena.png');">
+                        <div class="folder-overlay">
+                            <span class="folder-day">Ce</span>
+                            <h3>Ceturtdiena</h3>
+                            <span class="photo-count">2 foto</span>
+                        </div>
+                    </div>
+                    <div class="day-folder" data-day="piektdiena" style="background-image: url('hero.png');">
+                        <div class="folder-overlay">
+                            <span class="folder-day">Pk</span>
+                            <h3>Piektdiena</h3>
+                            <span class="photo-count">2 foto</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Album View: Shown after picking a day -->
+                <div id="album-view" class="album-view hidden">
+                    <button class="back-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="19" y1="12" x2="5" y2="12"></line>
+                            <polyline points="12 19 5 12 12 5"></polyline>
+                        </svg>
+                        Atpakaļ uz dienām
+                    </button>
+                    <h3 id="current-day-title">Pirmdiena</h3>
+
+                    <!-- Bento Grid filled dynamically via JS -->
+                    <div class="bento-grid" id="album-grid">
+                        <!-- Content injected by main.js based on selected day -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lightbox for Gallery -->
+        <div id="lightbox" class="lightbox">
+            <span class="lightbox-close">&times;</span>
+            <img class="lightbox-content" id="lightbox-img">
+            <div id="lightbox-caption"></div>
+        </div>
+
+
+
+        <!-- 6. Tematiskā vienība: Par mani -->
+        <section id="autors" class="days-section">
+            <div class="container">
+                <div class="section-badge">Autora profils</div>
+                <h2>Marta Karīna Skrastiņa</h2>
+
+                <div class="profile-layout">
+                    <div class="profile-info">
+                        <div class="profile-card card">
+                            <h3>Par projektu</h3>
+                            <p>Sveiki! Es esmu LU Datorikas nodaļas studente. Šī mājaslapa ir mans ieskats tajā, kā
+                                paiet viena parasta, bet tajā pašā laikā notikumiem bagāta nedēļa datorzinātņu studenta
+                                dzīvē.</p>
+                            <div class="skills-wrap">
+                                <span class="tag tag-prio-augsta">Full-stack</span>
+                                <span class="tag tag-prio-vidēja">Python</span>
+                                <span class="tag tag-prio-zema">UI/UX</span>
+                            </div>
+                            <div class="contact-info">
+                                <p><strong>E-pasts:</strong> marta.karina@lu.lv</p>
+                                <p><strong>Github:</strong> github.com/mkarina</p>
+                            </div>
+                        </div>
+
+                        <!-- Koda terminālis -->
+                        <div class="code-terminal">
+                            <div class="terminal-header">
+                                <div class="terminal-dots">
+                                    <span class="dot red"></span>
+                                    <span class="dot yellow"></span>
+                                    <span class="dot green"></span>
+                                </div>
+                                <div class="terminal-title">student.js</div>
+                            </div>
+                            <div class="terminal-body" id="typing-code">
+                                <!-- Animētais kods parādīsies šeit -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 marta.dev | Martas Karīnas Skrastiņas digitālā dienasgrāmata.</p>
+        </div>
+    </footer>
+
+    <!-- Easter Egg: Tetris Overlay -->
+    <div id="tetris-overlay" class="tetris-overlay hidden">
+        <div class="tetris-container">
+            <div class="tetris-header">
+                <h3>STUDENT TETRIS</h3>
+                <button id="close-tetris">&times;</button>
+            </div>
+            <div class="tetris-body">
+                <canvas id="tetris-canvas" width="240" height="400"></canvas>
+                <div class="tetris-info">
+                    <div class="stat-box">
+                        <span>Rezultāts</span>
+                        <div id="tetris-score">0</div>
+                    </div>
+                    <div class="controls-hint">
+                        <p>← → : Kustība</p>
+                        <p>↑ : Rotēt</p>
+                        <p>↓ : Paātrināt</p>
+                    </div>
+                    <button id="start-tetris" class="btn btn-primary">Sākt Spēli</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-outline" id="cursor-outline"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="main.js"></script>
+    <script src="motion.js" defer></script>
+</body>
+
+</html>
