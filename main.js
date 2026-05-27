@@ -434,92 +434,148 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 
-    // Gallery Album Logic
+    // Gallery Modal Logic - Single Image View
     const galleryData = {
         pirmdiena: [
-            { type: 'large', img: 'images/pirmdiena.jpg', tag: 'Studijas', title: 'Pirmdienas sākums' },
-            { type: '', img: 'images/pirmdiena1.jpg', tag: 'Atslodze', title: 'Atpūtas brīdis' },
-            { type: '', img: 'images/pirmdiena4.jpg', tag: 'Vakars', title: 'Dienas beigas' },
-            { type: 'wide', img: 'images/pirmdiena5.jpg', tag: 'Sagatavošanās', title: 'Darba noskaņa' }
+            { img: 'images/pirmdiena.jpg',  tag: 'Brīvlaiks',     title: 'Divi cilvēki staigā pa molu pie ūdens, muguras pret kameru' },
+            { img: 'images/pirmdiena1.jpg', tag: 'Daba',          title: 'Akmeņaina jūras krasts ar gulbjiem ūdenī' },
+            { img: 'images/pirmdiena4.jpg', tag: 'Universitāte',  title: 'LU galvenās ēkas ieeja ar Latvijas un Ukrainas karogiem, ziedoši krūmi' },
+            { img: 'images/pirmdiena5.jpg', tag: 'Darbs',         title: 'ASUS ZenBook klēpjdators ar atvērtu SQL Management Studio, puķu podi uz palodzes' }
         ],
         otrdiena: [
-            { type: 'large', img: 'images/otrdiena0.jpg', tag: 'Dators', title: 'Darbs' },
-            { type: '', img: 'images/otrdiena1.jpg', tag: 'Detaļas', title: 'Piezīmes' },
-            { type: 'tall', img: 'images/otrdiena2.jpg', tag: 'Vakars', title: 'Tumšā tēma' },
-            { type: '', img: 'images/otrdiena3.jpg', tag: 'Saraksts', title: 'Plānošana' },
-            { type: 'wide', img: 'images/otrdiena4.jpg', tag: 'Skats', title: 'Perspektīva' },
-            { type: '', img: 'images/otrdiena5.jpg', tag: 'Kafija', title: 'Pauze' },
-            { type: '', img: 'images/otrdiena6.jpg', tag: 'Noskaņa', title: 'Fokuss' }
+            { img: 'images/otrdiena0.jpg',  tag: 'Pilsēta',      title: 'Skanste City ēka ar Mintos logo pret zilu debesi' },
+            { img: 'images/otrdiena1.jpg',  tag: 'Parks',        title: 'Koku aleja parkā, saules gaisma caur lapotni' },
+            { img: 'images/otrdiena2.jpg',  tag: 'Lekcija',      title: 'LU auditorija — klēpjdators ar GitHub atvērtu, piezīmju grāmatiņa priekšplānā' },
+            { img: 'images/otrdiena3.jpg',  tag: 'Sports',       title: 'Galda tenisa rakete ar bumbiņu uz zila galda' },
+            { img: 'images/otrdiena4.jpg',  tag: 'Rīga',         title: 'Rīgas iela ar apgrieztiem kokiem rindā un trolejbusu vadiem' },
+            { img: 'images/otrdiena5.jpg',  tag: 'Transports',   title: 'Autobusa salons — dzeltens rokturis, Adidas mugursoma, zili sēdekļi' },
+            { img: 'images/otrdiena6.jpg',  tag: 'Uzkoda',       title: 'Roka tur Kārums šokolādes biezpiena sierdziņu pie klēpjdatora' }
         ],
         tresdiena: [
-            { type: 'large', img: 'images/tresdiena.jpg', tag: 'Studijas', title: 'Gatavošanās' },
-            { type: 'tall', img: 'images/tresdiena1.jpg', tag: 'Lasīšana', title: 'Grāmata' },
-            { type: '', img: 'images/tresdiena2.jpg', tag: 'Lekcija', title: 'Vidi' },
-            { type: 'wide', img: 'images/tresdiena3.jpg', tag: 'Projekts', title: 'Ekrāns' },
-            { type: '', img: 'images/tresdiena4.jpg', tag: 'Domāšana', title: 'Process' },
-            { type: '', img: 'images/tresdiena5.jpg', tag: 'Viela', title: 'Jaunumi' },
-            { type: 'wide', img: 'images/tresdiena6.jpg', tag: 'Mācības', title: 'Koncentrēšanās' }
+            { img: 'images/tresdiena.jpg',  tag: 'Lekcija',        title: 'ASUS ZenBook auditorijā — projektors ar vizuālās komunikācijas tēmu' },
+            { img: 'images/tresdiena1.jpg', tag: 'Spēle',          title: 'Vārdulis — Latvijas Wordle ar vārdiem PIENS, NAUDA, BANDA' },
+            { img: 'images/tresdiena2.jpg', tag: 'Daba',           title: 'Oranži un dzelteni rododendri pie vēsturiskas ķieģeļu ēkas' },
+            { img: 'images/tresdiena3.jpg', tag: 'Skanste',        title: 'Moderna biroju ēka ar kokiem un soliem, mākoņains gaiss' },
+            { img: 'images/tresdiena4.jpg', tag: 'Ceļš',           title: 'Skats no Audi vadītāja sēdekļa — taisna šoseja caur mežu' },
+            { img: 'images/tresdiena5.jpg', tag: 'Prezentācija',   title: 'LU prezentācija par praktisko darbu realizāciju — monitors un klēpjdators' },
+            { img: 'images/tresdiena6.jpg', tag: 'Sports',         title: 'Samsung pulkstenis uz rokas — skriešana 4.08 km, 37:53' }
         ],
         ceturtdiena: [
-            { type: 'large', img: 'images/ceturtdiena.jpg', tag: 'Rīts', title: 'Ceturtdienas miers' },
-            { type: '', img: 'images/ceturtdiena1.jpg', tag: 'Noslēgums', title: 'Darba beigas' }
+            { img: 'images/ceturtdiena.jpg',  tag: 'Darbs',        title: 'Divu monitoru darba vieta — AOC monitors un ASUS ZenBook ar kodu' },
+            { img: 'images/ceturtdiena1.jpg', tag: 'Motocikls',    title: 'Skats no motociklista sēdekļa — melns motocikls lietū, mitrs laukums' }
         ],
         piektdiena: [
-            { type: 'wide', img: 'images/piektdiena.jpg', tag: 'Finišs', title: 'Piektdiena' },
-            { type: 'tall', img: 'images/piektdiena2.png', tag: 'Ceļojums', title: 'Aiziet' }
+            { img: 'images/piektdiena.jpg',   tag: 'Motoskola',    title: 'Motoskolas laukums — riepas, dzeltena veste, BMW automašīna pelēkā dienā' },
+            { img: 'images/piektdiena2.png',  tag: 'Sports',       title: 'Garmin: Valmiera Skriešana — 3,25 km, 28:12, temps 8:41/km' }
         ]
     };
 
+    // Map day names from data-day attribute to display names
+    const dayNamesMap = {
+        pirmdiena: 'Pirmdiena',
+        otrdiena: 'Otrdiena',
+        tresdiena: 'Trešdiena',
+        ceturtdiena: 'Ceturtdiena',
+        piektdiena: 'Piektdiena'
+    };
+
+    const galleryModal = document.getElementById('gallery-modal');
+    const galleryMainImage = document.getElementById('gallery-main-image');
+    const galleryDayTitle = document.getElementById('gallery-day-title');
+    const galleryImageCounter = document.getElementById('gallery-image-counter');
+    const galleryPrevBtn = document.querySelector('.gallery-prev-btn');
+    const galleryNextBtn = document.querySelector('.gallery-next-btn');
+    const galleryCloseBtn = document.querySelector('.gallery-close-btn');
     const daySelectionView = document.getElementById('day-selection-view');
-    const albumView = document.getElementById('album-view');
-    const albumGrid = document.getElementById('album-grid');
-    const currentDayTitle = document.getElementById('current-day-title');
-    const backBtn = document.querySelector('.back-btn');
 
-    function openAlbum(day) {
+    let currentDay = null;
+    let currentImageIndex = 0;
+
+    function openGalleryModal(day) {
         const photos = galleryData[day];
-        if (!photos) return;
+        if (!photos || photos.length === 0) return;
 
-        albumGrid.innerHTML = '';
-        currentDayTitle.innerText = day.charAt(0).toUpperCase() + day.slice(1);
+        currentDay = day;
+        currentImageIndex = 0;
 
-        photos.forEach(photo => {
-            const item = document.createElement('div');
-            item.className = `bento-item ${photo.type}`;
-            item.style.backgroundImage = `url('${photo.img}')`;
-            // Iztukšots bento-overlay, lai vairs nerādītu tagus un virsrakstus uz bildēm
-            item.innerHTML = `
-                <div class="bento-overlay" style="background: transparent;">
-                </div>
-            `;
-            
-            item.onclick = () => {
-                // Izņemts teksta meklētājs, jo tagad uz bilžu vairs nav teksta
-                lightboxImg.src = photo.img;
-                lightboxCaption.innerText = "";
-                lightbox.classList.add('active');
-            };
-
-            albumGrid.appendChild(item);
-        });
-
+        galleryModal.classList.remove('hidden');
+        galleryModal.classList.add('active');
         daySelectionView.classList.add('hidden');
-        albumView.classList.remove('hidden');
-        window.location.hash = 'galerija';
+        document.body.classList.add('gallery-open');
+
+        // Set day title (capitalize first letter and convert underscores)
+        const displayName = dayNamesMap[day] || day.charAt(0).toUpperCase() + day.slice(1);
+        galleryDayTitle.innerText = displayName;
+
+        displayCurrentImage();
     }
 
+    function displayCurrentImage() {
+        const photos = galleryData[currentDay];
+        if (!photos) return;
+
+        const photo = photos[currentImageIndex];
+        galleryMainImage.src = photo.img;
+        galleryMainImage.alt = photo.title;
+        galleryImageCounter.innerText = `${currentImageIndex + 1} / ${photos.length} — ${photo.title}`;
+
+        // Disable prev button if at first image
+        galleryPrevBtn.disabled = currentImageIndex === 0;
+        // Disable next button if at last image
+        galleryNextBtn.disabled = currentImageIndex === photos.length - 1;
+    }
+
+    function nextImage() {
+        const photos = galleryData[currentDay];
+        if (currentImageIndex < photos.length - 1) {
+            currentImageIndex++;
+            displayCurrentImage();
+        }
+    }
+
+    function prevImage() {
+        if (currentImageIndex > 0) {
+            currentImageIndex--;
+            displayCurrentImage();
+        }
+    }
+
+    function closeGalleryModal() {
+        galleryModal.classList.remove('active');
+        galleryModal.classList.add('hidden');
+        daySelectionView.classList.remove('hidden');
+        document.body.classList.remove('gallery-open');
+        // Wait for DOM to re-render before scrolling
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                document.getElementById('galerija').scrollIntoView({ behavior: 'instant' });
+            });
+        });
+    }
+
+    // Event listeners
     document.querySelectorAll('.day-folder').forEach(folder => {
         folder.addEventListener('click', () => {
-            openAlbum(folder.dataset.day);
+            openGalleryModal(folder.dataset.day);
         });
     });
 
-    if (backBtn) {
-        backBtn.addEventListener('click', () => {
-            albumView.classList.add('hidden');
-            daySelectionView.classList.remove('hidden');
-        });
-    }
+    galleryNextBtn.addEventListener('click', nextImage);
+    galleryPrevBtn.addEventListener('click', prevImage);
+    galleryCloseBtn.addEventListener('click', closeGalleryModal);
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (galleryModal.classList.contains('active')) {
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                nextImage();
+            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                prevImage();
+            } else if (e.key === 'Escape') {
+                closeGalleryModal();
+            }
+        }
+    });
 
     // Stats Counter Animation
     const statsSection = document.querySelector('#dati');

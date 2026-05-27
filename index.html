@@ -406,25 +406,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Album View: Shown after picking a day -->
-                <div id="album-view" class="album-view hidden">
-                    <button class="back-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="19" y1="12" x2="5" y2="12"></line>
-                            <polyline points="12 19 5 12 12 5"></polyline>
-                        </svg>
-                        Atpakaļ uz dienām
-                    </button>
-                    <h3 id="current-day-title">Pirmdiena</h3>
-
-                    <!-- Bento Grid filled dynamically via JS -->
-                    <div class="bento-grid" id="album-grid">
-                        <!-- Content injected by main.js based on selected day -->
-                    </div>
-                </div>
-            </div>
         </section>
 
         <!-- Lightbox for Gallery -->
@@ -477,6 +458,44 @@
             </div>
         </section>
     </main>
+
+    <!-- Gallery Modal: Full-screen image view with side navigation -->
+    <div id="gallery-modal" class="gallery-modal hidden">
+        <!-- Top Bar: Day title + Close -->
+        <div class="gallery-top-bar">
+            <h3 id="gallery-day-title">Pirmdiena</h3>
+            <button class="gallery-close-btn" aria-label="Aizvērt galeriju">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Main Image Display -->
+        <div class="gallery-image-wrapper">
+            <img id="gallery-main-image" class="gallery-main-image" src="" alt="Dienas foto">
+        </div>
+
+        <!-- Left Navigation Arrow -->
+        <button class="gallery-nav-btn gallery-prev-btn" aria-label="Iepriekšējā foto">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+        </button>
+
+        <!-- Right Navigation Arrow -->
+        <button class="gallery-nav-btn gallery-next-btn" aria-label="Nākamā foto">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+        </button>
+
+        <!-- Bottom Info Bar -->
+        <div class="gallery-info-bar">
+            <span id="gallery-image-counter" class="image-counter">1 / 3</span>
+        </div>
+    </div>
 
     <!-- Pielāgots Toast paziņojums, kas aizvietos visus neglītos alert() -->
     <div id="toast-message" class="toast hidden">
