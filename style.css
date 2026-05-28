@@ -1,5 +1,5 @@
-﻿:root {
-    /* LU Cinematic â€” Light */
+:root {
+    /* LU Cinematic — Light */
     --bg-primary: #ffffff;
     --bg-secondary: #f3f6fc;
     --bg-deep: #0b1426;
@@ -21,7 +21,7 @@
 }
 
 body.dark-mode {
-    /* LU Cinematic â€” Dark (terminal-inspired) */
+    /* LU Cinematic — Dark (terminal-inspired) */
     --bg-primary: #050a1a;
     --bg-secondary: #0a142b;
     --bg-deep: #02050e;
@@ -135,7 +135,7 @@ h3 {
 
 .hero h1 {
     font-size: 4.5rem;
-    line-height: 1.1;
+    line-height: 1.15;
     margin-bottom: 1.5rem;
     letter-spacing: -2px;
 }
@@ -309,7 +309,7 @@ body.dark-mode .moon-icon { display: block; }
 }
 
 .schedule-item.next-lesson::before {
-    content: 'Nākamā';
+    content: 'Nakama';
     position: absolute;
     top: 6px;
     right: 8px;
@@ -334,8 +334,8 @@ body.dark-mode .moon-icon { display: block; }
     display: inline-block;
     padding: 1rem 2.5rem;
     border-radius: 50px;
-    border: none; /* Noņem nevajadzīgo noklusēto border */
-    outline: none; /* Noņem outline fokusējoties */
+    border: none; /* Nonem nevajadzigo nokluseto border */
+    outline: none; /* Nonem outline fokusejoties */
     text-decoration: none;
     font-weight: 700;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -586,8 +586,14 @@ body.dark-mode .moon-icon { display: block; }
 }
 
 .tag-prio-augsta { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.2); }
-.tag-prio-videja, .tag-prio-vidēja { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.2); }
+.tag-prio-videja, .tag-prio-videja { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.2); }
 .tag-prio-zema { background: rgba(34, 197, 94, 0.15); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.2); }
+
+/* Tech tags � used in Darbs and Par mani sections */
+.tag-tech-blue   { background: rgba(36, 84, 199, 0.15); color: var(--accent-color); border: 1px solid rgba(36, 84, 199, 0.25); }
+.tag-tech-cyan   { background: rgba(139, 92, 246, 0.12); color: #a78bfa; border: 1px solid rgba(139, 92, 246, 0.25); }
+.tag-tech-indigo { background: rgba(129, 140, 248, 0.15); color: #a5b4fc; border: 1px solid rgba(129, 140, 248, 0.2); }
+.tag-tech-violet { background: rgba(167, 139, 250, 0.15); color: #c4b5fd; border: 1px solid rgba(167, 139, 250, 0.2); }
 
 .tag-comp { background: var(--bg-secondary); color: var(--text-secondary); }
 
@@ -1047,9 +1053,103 @@ span.flatpickr-weekday {
     font-weight: 600;
 }
 
+/* Darbs Section */
+.work-section-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    align-items: stretch;
+}
+
+.work-text p {
+    margin-bottom: 1rem;
+    line-height: 1.75;
+    color: var(--text-secondary);
+}
+
+.work-images {
+    position: relative;
+    min-height: 420px;
+}
+
+.work-image-card {
+    position: absolute;
+    width: 56%;
+    overflow: hidden;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+    z-index: 1;
+}
+
+.work-image-card:first-child {
+    top: 0;
+    left: 0;
+    height: 52%;
+}
+
+.work-image-card:last-child {
+    bottom: 0;
+    right: 0;
+    height: 52%;
+}
+
+.work-image-card:hover {
+    transform: scale(1.04);
+    z-index: 2;
+}
+
+.work-image-card img {
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+.work-image-caption {
+    display: block;
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    padding: 0.4rem 0.25rem 0;
+    flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+    .work-section-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .work-images {
+        min-height: 480px;
+    }
+}
+
+@media (max-width: 600px) {
+    .work-images {
+        position: static;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        min-height: unset;
+    }
+
+    .work-image-card {
+        position: static;
+        width: 100%;
+    }
+
+    .work-image-card img {
+        height: 220px;
+    }
+}
+
 /* Gallery Modal - Full-screen Image View */
 /* =========================================
-   GALLERY MODAL — full-screen image viewer
+   GALLERY MODAL � full-screen image viewer
    ========================================= */
 .gallery-modal {
     display: none;
@@ -1095,7 +1195,7 @@ body.gallery-open #scroll-progress { display: none; }
     text-overflow: ellipsis;
 }
 
-/* Close button — inside top bar, right side */
+/* Close button � inside top bar, right side */
 .gallery-close-btn {
     position: absolute;
     right: 1rem;
@@ -1172,7 +1272,7 @@ body.gallery-open #scroll-progress { display: none; }
     cursor: default;
 }
 
-/* Bottom bar — just the counter */
+/* Bottom bar � just the counter */
 .gallery-info-bar {
     position: absolute;
     bottom: 0;
@@ -2418,10 +2518,10 @@ body.dark-mode .float-item {
 }
 
 /* =====================================================================
-   CINEMATIC ENHANCEMENTS â€” LU blue, premium feel, film-grain texture
+   CINEMATIC ENHANCEMENTS — LU blue, premium feel, film-grain texture
    ===================================================================== */
 
-/* Film grain overlay â€” subtle moving noise across the whole page */
+/* Film grain overlay — subtle moving noise across the whole page */
 .film-grain {
     position: fixed;
     inset: 0;
@@ -2463,7 +2563,7 @@ body.dark-mode .film-grain { opacity: 0.10; }
     background: linear-gradient(to bottom, rgba(5,10,26,0.85), transparent);
 }
 
-/* Hero â€” deeper, more atmospheric */
+/* Hero — deeper, more atmospheric */
 .hero {
     background:
         radial-gradient(1200px 600px at 50% 10%, rgba(36,84,199,0.18), transparent 60%),
@@ -2503,12 +2603,12 @@ body.dark-mode .hero {
     opacity: 0.6;
 }
 
-/* Hero typography â€” bigger, more cinematic */
+/* Hero typography — bigger, more cinematic */
 .hero h1 {
     font-size: clamp(2.5rem, 6.4vw, 5.6rem);
     font-weight: 800;
     letter-spacing: -3px;
-    line-height: 0.98;
+    line-height: 1.15;
 }
 
 .hero h1 .gradient-text {
@@ -2536,7 +2636,7 @@ body.dark-mode .hero h1 .gradient-text {
 /* Floating items now use the LU blue */
 .float-item { color: var(--accent-color); }
 
-/* Section badge â€” always on its own line */
+/* Section badge — always on its own line */
 .section-badge {
     display: inline-flex;
     align-items: center;
@@ -2582,7 +2682,7 @@ body.dark-mode .hero h1 .gradient-text {
     background: var(--accent-gradient);
 }
 
-/* Cards â€” sharper edges, deeper shadow on hover */
+/* Cards — sharper edges, deeper shadow on hover */
 .card,
 .tool-card,
 .stat-card,
@@ -2613,7 +2713,7 @@ body.dark-mode .hero h1 .gradient-text {
 }
 .schedule-day h3 { border-bottom: 1px dashed var(--border-color); color: var(--accent-color); }
 
-/* Stat values â€” switch to full LU gradient + thin baseline */
+/* Stat values — switch to full LU gradient + thin baseline */
 .stat-value {
     background: var(--accent-gradient);
     -webkit-background-clip: text;
@@ -2637,12 +2737,12 @@ body.dark-mode .hero h1 .gradient-text {
 }
 .stat-card:hover::after { opacity: 1; }
 
-/* Tool logos â€” neutral monochrome navy */
+/* Tool logos — neutral monochrome navy */
 .tool-logo {
     background: linear-gradient(135deg, var(--accent-deep), var(--accent-color));
 }
 
-/* GALLERY â€” Cinematic day folders with Ken Burns */
+/* GALLERY — Cinematic day folders with Ken Burns */
 .day-folder {
     aspect-ratio: 3/4;
     border-radius: 18px;
@@ -2696,7 +2796,7 @@ body.dark-mode .hero h1 .gradient-text {
     opacity: 0.75;
 }
 
-/* BENTO â€” denser auto-fitting grid that scales with photo count */
+/* BENTO — denser auto-fitting grid that scales with photo count */
 .bento-grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -2763,7 +2863,7 @@ body.dark-mode .hero h1 .gradient-text {
     }
 }
 
-/* Lightbox â€” cinematic with caption strip */
+/* Lightbox — cinematic with caption strip */
 .lightbox { background: rgba(2,5,14,0.97); }
 .lightbox-content {
     border-radius: 6px;
@@ -2777,7 +2877,7 @@ body.dark-mode .hero h1 .gradient-text {
     color: var(--accent-bright);
 }
 
-/* Buttons â€” pill, with sweep highlight */
+/* Buttons — pill, with sweep highlight */
 .btn-primary {
     position: relative;
     overflow: hidden;
@@ -2795,7 +2895,7 @@ body.dark-mode .hero h1 .gradient-text {
 }
 .btn-primary:hover::after { left: 100%; }
 
-/* Navbar â€” refined glass with bottom hairline gradient */
+/* Navbar — refined glass with bottom hairline gradient */
 .navbar {
     border-bottom: none;
     box-shadow: 0 1px 0 0 var(--border-color);
@@ -2809,13 +2909,13 @@ body.dark-mode .hero h1 .gradient-text {
     opacity: 0.4;
 }
 
-/* Glow blobs â€” softer, blue-tinted */
+/* Glow blobs — softer, blue-tinted */
 .glow-blob {
     background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
     opacity: 0.7;
 }
 
-/* Code terminal stays dark always â€” but accent in LU blue */
+/* Code terminal stays dark always — but accent in LU blue */
 .cursor { background: var(--accent-bright); }
 .code-kw   { color: #6ea3ff; }
 .code-var  { color: #9bc1ff; }
@@ -2838,7 +2938,7 @@ body.light-mode .section-badge { background: rgba(36,84,199,0.06); }
 }
 
 /* =====================================================================
-   CINEMATIC MOTION â€” supporting styles for motion.js
+   CINEMATIC MOTION — supporting styles for motion.js
    ===================================================================== */
 
 /* Tilt + parallax composable transforms via CSS variables */
@@ -2917,7 +3017,7 @@ body.light-mode .section-badge { background: rgba(36,84,199,0.06); }
                 box-shadow 0.5s ease;
 }
 
-/* SECTION REVEAL â€” clip-path mask wipe + fade + slight rise */
+/* SECTION REVEAL — clip-path mask wipe + fade + slight rise */
 .cine-reveal {
     opacity: 0;
     transform: translate3d(0, 28px, 0);
@@ -2946,7 +3046,7 @@ section.cine-reveal.cine-in {
     transform: translate3d(0, 0, 0);
 }
 
-/* Hero section excluded â€” visible immediately */
+/* Hero section excluded — visible immediately */
 section.hero.cine-reveal { opacity: 1; transform: none; clip-path: none; }
 
 /* Smooth between-section gradient masks (top + bottom hairlines) */
@@ -2995,7 +3095,7 @@ section.hero.cine-reveal { opacity: 1; transform: none; clip-path: none; }
 .bento-item.cine-in .bento-overlay { transform: translateY(0); }
 .bento-item:hover .bento-overlay { transform: translateY(-4%); }
 
-/* Schedule items â€” staggered reveal driven by parent reveal */
+/* Schedule items — staggered reveal driven by parent reveal */
 .schedule-day .schedule-item {
     opacity: 0;
     transform: translateX(-12px);
@@ -3010,7 +3110,7 @@ section.hero.cine-reveal { opacity: 1; transform: none; clip-path: none; }
 .schedule-day.cine-in .schedule-item:nth-child(4) { transition-delay: 0.30s; }
 .schedule-day.cine-in .schedule-item:nth-child(5) { transition-delay: 0.40s; }
 
-/* Tool cards â€” soft delayed pop on reveal */
+/* Tool cards — soft delayed pop on reveal */
 .tool-card {
     opacity: 0;
     transform: translateY(20px) scale(0.97);
@@ -3022,7 +3122,7 @@ section.hero.cine-reveal { opacity: 1; transform: none; clip-path: none; }
     transform: translateY(0) scale(1);
 }
 
-/* Stat cards â€” scale-in with spring-ish curve */
+/* Stat cards — scale-in with spring-ish curve */
 .stat-card {
     opacity: 0;
     transform: translateY(24px) scale(0.94);

@@ -31,9 +31,9 @@
                 <li><a href="#sakums">Sākums</a></li>
                 <li><a href="#grafiks">Grafiks</a></li>
                 <li><a href="#planotajs">Uzdevumi</a></li>
-                <li><a href="#komplekts">Fokuss</a></li>
                 <li><a href="#dati">Statistika</a></li>
                 <li><a href="#vide">Rīki</a></li>
+                <li><a href="#darbs">Darbs</a></li>
                 <li><a href="#galerija">Galerija</a></li>
                 <li><a href="#autors">Par mani</a></li>
             </ul>
@@ -82,7 +82,7 @@
             <div class="hero-content">
                 <span class="hero-eyebrow fade-in">LU · Datorikas nodaļas · 2026</span>
                 <h1 class="fade-in">Viena nedēļa<br><span class="gradient-text">Studenta Dzīvē</span></h1>
-                <p class="fade-in-delay">Ieskats Latvijas Universitātes Datorikas nodaļas ikdienā – no koda rindām līdz
+                <p class="fade-in-delay">Ieskats Latvijas Universitātes Datorikas nodaļas studenta ikdienā – no koda rindām līdz
                     studentu brīvībai.</p>
                 <div class="hero-actions fade-in-delay">
                     <a href="#grafiks" class="btn btn-primary magnetic" id="hero-cta">Sākt ceļojumu</a>
@@ -97,6 +97,7 @@
             <div class="container">
                 <div class="section-badge">Nedēļas plāns</div>
                 <h2>Lekciju grafiks</h2>
+                <p>Datorikas studenta nedēļa ir diezgan daudzveidīga — klātienes lekcijas no rītiem, tiešsaistes lekcijas vakaros. Grafika krāsas mainās automātiski: aktīvā lekcija ir iezīmēta rozā-zilā krāsā, bet ja neviena lekcija pašlaik nenotiek, nākamā gaidāmā tiek iezīmēta zilā krāsā ar tagu "Nākamā". Pārējās lekcijas paliek noklusējuma izskatā.</p>
                 <div class="schedule-container">
                     <div class="schedule-day" data-day="1">
                         <h3>Pirmdiena</h3>
@@ -141,7 +142,7 @@
             <div class="container">
                 <div class="section-badge">Nedēļas vadība</div>
                 <h2>Darbu plānotājs</h2>
-                <p>Pievieno savus studiju vai darba uzdevumus ar prioritātēm un sarežģītību.</p>
+                <p>Nedēļas uzdevumi vienuviet — pievieno uzdevumu ar nosaukumu, prioritāti, sarežģītību un termiņu, tad velc un nomet starp kolonnām, lai atzīmētu progresu. Kad uzdevums nonāk "Pabeigts" — konfeti garantēts.</p>
 
                 <div class="kanban-controls">
                     <button id="open-modal" class="btn btn-primary">Pievienot uzdevumu</button>
@@ -211,54 +212,11 @@
             </div>
         </section>
 
-        <!-- 7. Tematiskā vienība: Fokusa centrs -->
-        <section id="komplekts" class="days-section">
-            <div class="container">
-                <div class="section-badge">Produktivitāte</div>
-                <div class="section-header-inline">
-                    <h2>Fokusa centrs</h2>
-                    <div class="info-trigger" id="focus-info-trigger">
-                        <span>i</span>
-                        <div class="info-tooltip">
-                            <h4>Kāpēc fokusa centrs?</h4>
-                            <p>Zinātniski pierādīts, ka sadalot darbu mazos, intensīvos posmos (piem. Pomodoro metode), efektivitāte pieaug. Izmanto šo rīku, lai nepazaudētu laika izjūtu programmējot!</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="focus-center-container card">
-                    <div class="focus-tabs">
-                        <button class="focus-tab active" data-mode="clock">Pulkstenis</button>
-                        <button class="focus-tab" data-mode="timer">Taimeris</button>
-                        <button class="focus-tab" data-mode="stopwatch">Hronometrs</button>
-                    </div>
-
-                    <div class="timer-display" id="main-display">00:00:00</div>
-                    
-                    <div class="timer-controls hidden" id="timer-controls">
-                        <div class="timer-presets hidden" id="timer-presets">
-                            <button class="preset-btn" data-time="25">25m</button>
-                            <button class="preset-btn" data-time="50">50m</button>
-                            <button class="preset-btn" data-time="15">Atpūta</button>
-                        </div>
-                        <div class="action-btns">
-                            <button id="timer-start" class="btn btn-primary">Sākt</button>
-                            <button id="timer-pause" class="btn btn-secondary hidden">Pauze</button>
-                            <button id="timer-reset" class="btn btn-outline hidden">Atiestatīt</button>
-                        </div>
-                    </div>
-                    
-                    <div class="focus-footer">
-                        <button id="open-tetris-btn" class="btn-text">Paņemt 5min pauzi? 🎮</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <section id="dati" class="stats-section">
             <div class="container fade-in">
                 <div class="section-badge">Statistika</div>
                 <h2>Nedēļa skaitļos</h2>
+                <p>Šī nedēļa skaitļos — daļa no tiem ir precīzi, daļa aptuveni. Koda rindu skaits nāk no faktiskiem commit'iem, kafijas tases — no godīgas pašnovērošanas. Efektivitātes procents ir subjektīvs — nedēļā, kad viss tiek padarīts laikā, tas ir augsts. Šonedēļ — gandrīz.</p>
                 <div class="stats-grid">
                     <div class="stat-card">
                         <div class="stat-icon">💻</div>
@@ -289,6 +247,7 @@
                         <div class="stat-icon">🏆</div>
                         <div class="stat-value" data-target="12">0</div>
                         <div class="stat-label">Uzvaras</div>
+                        <button id="open-tetris-btn" class="btn-text" style="margin-top:0.5rem;font-size:0.75rem;">Pievieno vēl vienu uzvaru 🏆</button>
                     </div>
                     <div class="stat-card">
                         <div class="stat-icon">🌙</div>
@@ -309,6 +268,7 @@
             <div class="container">
                 <div class="section-badge">Ekosistēma</div>
                 <h2>Digitālā vide</h2>
+                <p>Studijās un darbā izmantoju diezgan daudz dažādu rīku — daži ir obligāti (e-studijas, LUIS), citi kļuvuši par ieradumu (VS Code, GitHub). Katrs no tiem risina kādu konkrētu problēmu ikdienā, un kopā tie veido ekosistēmu, bez kuras studenta dzīve būtu krietni sarezgītāka.</p>
 
                 <div class="tools-grid">
                     <div class="tool-card">
@@ -367,18 +327,52 @@
             </div>
         </section>
 
+        <!-- Darba pieredze: SIA BISS -->
+        <section id="darbs" class="days-section">
+            <div class="container">
+                <div class="section-badge">Darba pieredze</div>
+                <h2>Darbs IT nozarē</h2>
+
+                <div class="work-section-layout">
+                    <div class="work-text">
+                        <p>Paralēli studijām Latvijas Universitātē strādāju kā jaunākā izstrādātāja uzņēmumā SIA BISS — vienā no vadošajiem IT uzņēmumiem Latvijā, kas specializējas autostāvvietu pārvaldības sistēmās un integrētiem maksājumu risinājumiem. Šī pieredze ļauj apvienot universitātē apgūtās teorētiskās zināšanas ar reālu darba vidi.</p>
+                        <p>Ikdienā strādāju ar .NET platformu, relāciju datu bāzēm un sistēmu integrācijām. Viens no aizraujošākajiem aspektiem ir iespēja redzēt sava darba rezultātu reālajā pasaulē — sistēmas, pie kurām strādāju, tiek izmantotas autostāvvietās Latvijā un ārpus tās. Stāvvietu maksājumu automāti un sienas termināļi nav tikai ierīces — tie ir komandas darba produkts.</p>
+                        <p>Studiju un darba savienošana prasa disciplīnu un laika plānošanu. Tomēr šī kombinācija sniedz neaizstājamu pieredzi un ļauj nedēļas garumā ne tikai mācīties no lekcijām, bet arī no reāliem projektu izaicinājumiem.</p>
+                        <div class="skills-wrap" style="margin-top:1.5rem;">
+                            <span class="tag tag-tech-cyan">.NET</span>
+                            <span class="tag tag-tech-cyan">SQL</span>
+                            <span class="tag tag-tech-cyan">C#</span>
+                            <span class="tag tag-tech-cyan">API</span>
+                        </div>
+                    </div>
+
+                    <div class="work-images">
+                        <div class="work-image-card card">
+                            <img src="images/paystation.jpg" alt="SIA BISS stāvvietas maksājumu automāts naktī" loading="lazy">
+                            <span class="work-image-caption">Stāvvietas maksājumu automāts</span>
+                        </div>
+                        <div class="work-image-card card">
+                            <img src="images/sienasTerminalis.jpg" alt="Sienas terminālis ar maiņas uzsākšanas ekrānu — PDD Apollo sistēma" loading="lazy">
+                            <span class="work-image-caption">Sienas terminālis</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- 5. Tematiskā vienība: Modernā Bento Galerija -->
         <section id="galerija" class="days-section">
             <div class="container">
                 <div class="section-badge">Vizuālās atmiņas</div>
                 <h2>Nedēļas albums</h2>
+                <p>Katra diena ir savādāka — dažreiz tā ir pilna ar lekcijām un termiņiem, citas reizes atstāj laiku sportam vai vienkārši pastaigai. Šis albums ir vizuāls ieskats tajā, kā izskatās studenta nedēļa no pirmdienas līdz piektdienai. Izvēlies dienu, lai apskatītu foto.</p>
 
                 <!-- Day Selection View: Primary 5 Thumbnails -->
                 <div id="day-selection-view" class="day-selection-grid">
                     <div class="day-folder" data-day="pirmdiena" style="background-image: url('images/pirmdiena.jpg');">
                         <div class="folder-overlay">
                         <h3>Pirmdiena</h3>
-                        <span class="photo-count">3 foto</span>
+                        <span class="photo-count">4 foto</span>
                     </div>
                 </div>
                 <div class="day-folder" data-day="otrdiena" style="background-image: url('images/otrdiena0.jpg');">
@@ -429,9 +423,9 @@
                             <h3>Par mani</h3>
                             <p>Sveiki! Es esmu LU Datorikas nodaļas 3. kursa studente. Paralēli studijām strādāju kā jaunākā izstrādātāja uzņēmumā SIA BISS, ikdienā apvienojot akadēmiskās zināšanas ar reālu darba pieredzi IT nozarē.</p>
                             <div class="skills-wrap">
-                                <span class="tag tag-prio-augsta">.NET</span>
-                                <span class="tag tag-prio-vidēja">Web Izstrāde</span>
-                                <span class="tag tag-prio-zema">C#</span>
+                                <span class="tag tag-tech-cyan">.NET</span>
+                                <span class="tag tag-tech-cyan">Web Izstrāde</span>
+                                <span class="tag tag-tech-cyan">C#</span>
                             </div>
                             <div class="contact-info">
                                 <p><strong>E-pasts:</strong> ms23123@edu.lu.lv</p>
@@ -512,7 +506,7 @@
     <div id="tetris-overlay" class="tetris-overlay hidden">
         <div class="tetris-container">
             <div class="tetris-header">
-                <h3>STUDENT TETRIS</h3>
+                <h3>TETRIS</h3>
                 <button id="close-tetris">&times;</button>
             </div>
             <div class="tetris-body">

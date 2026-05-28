@@ -141,11 +141,18 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(updateScheduleHighlighting, 60000);
 
     // Kanban Logic
-    const kanbanData = JSON.parse(localStorage.getItem('kanbanTasksV2')) || {
-        todo: [],
-        doing: [],
-        done: []
+    const defaultTasks = {
+        todo: [
+            { title: 'Sagatavot materiālus datu bāžu praktikuma esejai', priority: 'Augsta', complexity: 'Vidēji', deadline: '2026-06-18' }
+        ],
+        doing: [
+            { title: 'Tīmekļa dizaina projekts', priority: 'Augsta', complexity: 'Grūti', deadline: '2026-06-03' }
+        ],
+        done: [
+            { title: 'Algoritmiskā teorija ieskaite', priority: 'Augsta', complexity: 'Grūti', deadline: '2026-06-03' }
+        ]
     };
+    const kanbanData = JSON.parse(localStorage.getItem('kanbanTasksV2')) || defaultTasks;
 
     // Flatpickr Initialization
     const datePicker = flatpickr("#task-deadline", {
