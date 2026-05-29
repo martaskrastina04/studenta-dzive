@@ -2347,6 +2347,8 @@ body.light-mode .tetris-overlay {
 @media (max-width: 600px) {
     .tetris-body { grid-template-columns: 1fr; }
     .tetris-container { padding: 1.5rem; }
+    #open-tetris-btn { display: none; }
+    #tetris-overlay { display: none !important; }
 }
 
 .tetris-touch-controls {
