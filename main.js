@@ -824,6 +824,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const timerPauseBtn = document.getElementById('timer-pause');
     const timerResetBtn = document.getElementById('timer-reset');
 
+    if (timerStartBtn) {
     let currentMode = 'clock'; // clock, timer, stopwatch
     let timerInterval = null;
     let timeRemaining = 0; // for timer
@@ -941,6 +942,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize clock mode
     timerInterval = setInterval(updateDisplay, 1000);
+    } // end if (timerStartBtn)
 
     // --- KONAMI CODE & TETRIS EASTER EGG ---
     const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
