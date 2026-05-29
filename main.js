@@ -524,7 +524,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const photo = photos[currentImageIndex];
         galleryMainImage.src = photo.img;
         galleryMainImage.alt = photo.title;
-        galleryImageCounter.innerText = `${currentImageIndex + 1} / ${photos.length} — ${photo.title}`;
+        galleryImageCounter.innerText = `${currentImageIndex + 1} / ${photos.length}`;
 
         // Disable prev button if at first image
         galleryPrevBtn.disabled = currentImageIndex === 0;
