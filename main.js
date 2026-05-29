@@ -143,13 +143,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Kanban Logic
     const defaultTasks = {
         todo: [
-            { title: 'Sagatavot materiālus datu bāžu praktikuma esejai', priority: 'Augsta', complexity: 'Vidēji', deadline: '2026-06-18' }
+            { title: 'Sagatavot materiālus datu bāžu praktikuma eksāmenam', priority: 'Augsta', complexity: 'Vidēji', deadline: '2026-06-18' }
         ],
         doing: [
             { title: 'Tīmekļa dizaina projekts', priority: 'Augsta', complexity: 'Grūti', deadline: '2026-06-03' }
         ],
         done: [
-            { title: 'Algoritmiskā teorija ieskaite', priority: 'Augsta', complexity: 'Grūti', deadline: '2026-06-03' }
+            { title: 'Algoritmu teorijas eksāmenes', priority: 'Augsta', complexity: 'Grūti', deadline: '2026-06-03' }
         ]
     };
     const kanbanData = JSON.parse(localStorage.getItem('kanbanTasksV2')) || defaultTasks;
@@ -1265,6 +1265,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (openTetrisBtn) {
         openTetrisBtn.onclick = activateEasterEgg;
     }
+
+    // Touch controls for mobile
+    document.getElementById('touch-left')?.addEventListener('click', () => { if (gameRunning) playerMove(-1); });
+    document.getElementById('touch-right')?.addEventListener('click', () => { if (gameRunning) playerMove(1); });
+    document.getElementById('touch-down')?.addEventListener('click', () => { if (gameRunning) playerDrop(); });
+    document.getElementById('touch-rotate')?.addEventListener('click', () => { if (gameRunning) playerRotate(1); });
 
     // --- CUSTOM CURSOR LOGIC ---
     const cursorDot = document.getElementById('cursor-dot');
