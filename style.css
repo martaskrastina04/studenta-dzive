@@ -2383,6 +2383,8 @@ body.light-mode .tetris-overlay {
     transition: color 0.3s;
     text-decoration: underline dotted;
     text-underline-offset: 4px;
+    position: relative;
+    z-index: 2;
 }
 
 .btn-text:hover {
@@ -2626,6 +2628,17 @@ body.dark-mode .hero {
     height: 1px;
     background: var(--accent-color);
     opacity: 0.6;
+}
+
+@media (max-width: 600px) {
+    .hero-eyebrow {
+        flex-direction: column;
+        gap: 0.25rem;
+        letter-spacing: 3px;
+    }
+    .hero-eyebrow::before,
+    .hero-eyebrow::after { display: none; }
+    .eyebrow-sep { display: none; }
 }
 
 /* Hero typography — bigger, more cinematic */
